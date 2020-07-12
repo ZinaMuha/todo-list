@@ -1,6 +1,7 @@
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Main from '../components/Main/Main';
+import './polyfills';
 
 const title = 'TODO List';
 const footerText = 'by Z. Muhamediarova';

@@ -6,7 +6,8 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "normalize.css": "^8.0.1",
-    "sass-mq": "^5.0.1"
+    "sass-mq": "^5.0.1",
+    "stickyfilljs": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

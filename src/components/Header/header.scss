@@ -1,11 +1,14 @@
 .header {
-  background: $blue-color;
+  background: #66c5ba;
+  box-shadow: 0px 2px 10px 0 #eee;
   padding: 10px 0;
+  color: #fff;
 
   &__title {
     text-align: center;
     margin: 0;
     font-size: 25px;
+    font-weight: 700;
 
     @include mq($from: 'desktop') {
       font-size: 35px;

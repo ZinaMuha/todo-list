@@ -1,0 +1,33 @@
+.field {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+
+  &__input {
+    background: none;
+    padding: 20px;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #66c5ba;
+    width: 100%;
+    flex-grow: 1;
+    outline: 0;
+  }
+
+  &__button {
+    background: #66c5ba;
+    border: 0;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+    min-width: 20%;
+    outline: 0;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 5px rgba(#d2e9e6, 0);
+    transition: box-shadow .2s;
+
+    &:active {
+      box-shadow: 0 0 0 5px #d2e9e6;
+    }
+  }
+}
