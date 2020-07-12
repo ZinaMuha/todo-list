@@ -1,0 +1,57 @@
+@import '~sass-mq/_mq.scss';
+
+@mixin font-face($name, $filename, $path, $weight:normal, $style:normal) {
+  @font-face {
+    font-family: $name;
+    src: url($path + $filename + '.woff2') format('woff2'),
+         url($path + $filename + '.woff') format('woff'),
+         url($path + $filename + '.ttf') format('ttf'),
+         url($path + $filename + '.eot') format('eot');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@function em($pixels, $context: $base-font-size) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin visuallyhidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin holder {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 320px;
+  max-width: 1290px;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include mq($from: desktop) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
