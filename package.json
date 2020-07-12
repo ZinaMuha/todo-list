@@ -1,0 +1,23 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Структура проекта: /build /gulp /src   /components     /{name}       /{name}.js       /{name}.html       /{name}.scss   /fonts   /images   /styles     /vendor       normalize.scss     /base       fonts.scss       vars.scss     main.scss // импорты всех блоков и папок   /scripts     /vendor     main.js //импорты всех блоков и папок   /views     index.html // include блоков через @@include(\"../blocks/modules/header/header.html\") webpack.config",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZinaMuha/todo-list.git"
+  },
+  "author": "Zina Muhamediarova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZinaMuha/todo-list/issues"
+  },
+  "homepage": "https://github.com/ZinaMuha/todo-list#readme"
+}
