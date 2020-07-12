@@ -1,26 +1,19 @@
-// Webpack uses this to work with directories
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
-// This is the main configuration object.
-// Here you write different options and tell Webpack what to do
 module.exports = {
-
-  // Path to your entry point. From this file Webpack will begin his work
-  entry: './src/scripts/index.js',
-
-  // Path and filename of your result bundle.
-  // Webpack will bundle all JavaScript into this file
+  context: path.resolve(__dirname, 'src'), 
+  entry: './scripts/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
-
-  // Default mode for Webpack is production.
-  // Depending on mode Webpack will apply different things
-  // on final bundle. For now we don't need production's JavaScript 
-  // minifying and other thing so let's set mode to development
-  mode: 'development',
+  mode: isDev ? 'development' : 'production',
+  devServer: {
+    contentBase: './build'
+  },
   module: {
     rules: [
       {
@@ -36,33 +29,41 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
+          MiniCssExtractPlugin.loader,
           {
-            loader: MiniCssExtractPlugin.loader
-          },
-          {
-            loader: "css-loader",
-          },
-          {
-            loader: "postcss-loader"
-          },
-          {
-            loader: "sass-loader",
+            loader: 'css-loader',
             options: {
-              implementation: require("sass")
+              sourceMap: true
             }
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: { 
+                path: 'src/js/postcss.config.js' 
+              }
+            }
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              implementation: require('sass'),
+            }
+          }, {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.resolve(__dirname, 'src/styles/base/index.scss')
+              ]
+            },
           }
         ]
       },
       {
-        // Now we apply rule for images
         test: /\.(png|jpe?g|gif|svg)$/,
         use: [
           {
-            // Using file-loader for these files
             loader: 'file-loader',
-
-            // In options we can set different things like format
-            // and directory to save
             options: {
               outputPath: 'images'
             }
@@ -70,13 +71,12 @@ module.exports = {
         ]
       },
       {
-        // Apply rule for fonts files
         test: /\.(woff|woff2|ttf|otf|eot)$/,
         use: [
           {
-            // Using file-loader too
             loader: 'file-loader',
             options: {
+              name: '[name].[ext]',
               outputPath: 'fonts'
             }
           }
@@ -87,6 +87,11 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'bundle.css'
-    })
+    }),
+    new HtmlWebpackPlugin({
+      hash: false,
+      template: './templates/index.html',
+      filename: 'index.html',
+    }),
   ]
 };

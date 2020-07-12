@@ -348,51 +348,5 @@ template {
   display: none;
 }
 
-@font-face {
-  font-family: "Circe";
-  src: url(fonts/725117ba4cb795793acf39d5df54ff08.woff2) format("woff2"), url(fonts/c63b5d1236a3682443b6c76baf443312.woff) format("woff"), url(fonts/7682ec634282fca562742bd988294c00.ttf) format("ttf"), url(fonts/b99ce6b8193b7c862c1e3de029904124.eot) format("eot");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Circe";
-  src: url(fonts/47068ef69c961c589abd98559e02434a.woff2) format("woff2"), url(fonts/c6c9cdf2b44d54b9ae690f2d65662cd6.woff) format("woff"), url(fonts/d7323fc5e9da66d67106d0ccc5b1fcc8.ttf) format("ttf"), url(fonts/16d755fce7b213f19a4cd5f9d90a12e6.eot) format("eot");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-html {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
-  font-size: 100%;
-  height: 100%;
-}
-
-body {
-  font-family: "Circe", "Arial", "Helvetica", sans-serif;
-  line-height: 1.4;
-  font-weight: 400;
-  color: #393939;
-  height: 100%;
-  font-size: 14px;
-  overflow-y: scroll;
-}
-body.t-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-}
-
-.main {
-  flex: 1 0 auto;
-}
-
-::selection {
-  background: #f9a73d;
-  text-shadow: none;
-}
+@font-face{font-family:Circe;src:url(/fonts/circe-regular.woff2) format("woff2"),url(/fonts/circe-regular.woff) format("woff"),url(/fonts/circe-regular.ttf) format("ttf"),url(/fonts/circe-regular.eot) format("eot");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Circe;src:url(/fonts/circe-bold.woff2) format("woff2"),url(/fonts/circe-bold.woff) format("woff"),url(/fonts/circe-bold.ttf) format("ttf"),url(/fonts/circe-bold.eot) format("eot");font-weight:700;font-style:normal;font-display:swap}html{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;font-size:100%}body,html{height:100%}body{font-family:Circe,Arial,Helvetica,sans-serif;line-height:1.4;font-weight:400;color:#393939;font-size:14px;overflow-y:scroll}body.t-popup{position:fixed;top:0;left:0;right:0;bottom:0;overflow:hidden}.page{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;min-height:100%}.main{-webkit-box-flex:1;-ms-flex:1 0 auto;flex:1 0 auto}::-moz-selection{background:#f9a73d;text-shadow:none}::selection{background:#f9a73d;text-shadow:none}.header{background:#c8f2ff;padding:10px 0}.header__title{text-align:center;margin:0;font-size:25px}.header__holder{margin-left:auto;margin-right:auto;min-width:320px;max-width:1290px;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left:20px;padding-right:20px}@media (min-width:64em){.header__title{font-size:35px}.header__holder{padding-left:50px;padding-right:50px}}
+@font-face{font-family:Circe;src:url(/fonts/circe-regular.woff2) format("woff2"),url(/fonts/circe-regular.woff) format("woff"),url(/fonts/circe-regular.ttf) format("ttf"),url(/fonts/circe-regular.eot) format("eot");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Circe;src:url(/fonts/circe-bold.woff2) format("woff2"),url(/fonts/circe-bold.woff) format("woff"),url(/fonts/circe-bold.ttf) format("ttf"),url(/fonts/circe-bold.eot) format("eot");font-weight:700;font-style:normal;font-display:swap}html{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;font-size:100%}body,html{height:100%}body{font-family:Circe,Arial,Helvetica,sans-serif;line-height:1.4;font-weight:400;color:#393939;font-size:14px;overflow-y:scroll}body.t-popup{position:fixed;top:0;left:0;right:0;bottom:0;overflow:hidden}.page{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;min-height:100%}.main{-webkit-box-flex:1;-ms-flex:1 0 auto;flex:1 0 auto}::-moz-selection{background:#f9a73d;text-shadow:none}::selection{background:#f9a73d;text-shadow:none}.footer{background:#c8f2ff;padding:10px 0}.footer__holder{margin-left:auto;margin-right:auto;min-width:320px;max-width:1290px;-webkit-box-sizing:border-box;box-sizing:border-box;padding-left:20px;padding-right:20px}.footer__text{margin:0;text-align:right;font-size:12px}@media (min-width:64em){.footer__holder{padding-left:50px;padding-right:50px}.footer__text{font-size:14px}}

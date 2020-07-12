@@ -15,16 +15,21 @@
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
+    "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
+    "sass-resources-loader": "^2.0.3",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
+    "start": "webpack-dev-server --open --mode development",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
@@ -36,5 +41,9 @@
   "bugs": {
     "url": "https://github.com/ZinaMuha/todo-list/issues"
   },
-  "homepage": "https://github.com/ZinaMuha/todo-list#readme"
+  "homepage": "https://github.com/ZinaMuha/todo-list#readme",
+  "browserslist": [
+    "> 1%",
+    "last 3 version"
+  ]
 }
