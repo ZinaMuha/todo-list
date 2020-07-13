@@ -1,5 +1,3 @@
-'use strict';
-
 // polyfills
 import Stickyfill from 'stickyfilljs';
 

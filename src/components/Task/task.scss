@@ -7,23 +7,31 @@
   justify-content: space-between;
   align-items: flex-start;
 
+  & + & {
+    margin-top: 15px;
+  }
+
   @include mq($from: desktop) {
     font-size: 18px;
 
     &:hover #{$root}__remove {
       opacity: 1;
     }
-  }
-  
-  & + & {
-    margin-top: 20px;
+
+    & + & {
+      margin-top: 20px;
+    }
   }
 
   &__box {
     display: flex;
     align-items: baseline;
-    padding: 20px;
+    padding: 15px 20px;
     flex-grow: 1;
+
+    @include mq($from: desktop) {
+      padding: 20px;
+    }
   }
 
   &__checkbox {
@@ -33,22 +41,22 @@
     opacity: 0;
 
     & + #{$root}__text:hover:before {
-      border-color: #66c5ba;
+      border-color: $green-color;
     }
 
     &:active + #{$root}__text:before {
-      background-color: #66c5ba;
-      border-color: #66c5ba;
+      background-color: $green-color;
+      border-color: $green-color;
     }
 
     &:checked + #{$root}__text {
       opacity: 0.2;
 
       &:before {
-        border-color: #66c5ba;
-        background-color: #66c5ba;
+        border-color: $green-color;
+        background-color: $green-color;
         background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"%3e%3cpath fill="%23fff" d="M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z"/%3e%3c/svg%3e');
-        box-shadow: 0 0 0 5px rgba(#66c5ba, 0.25);
+        box-shadow: 0 0 0 5px rgba($green-color, 0.25);
       }
     }
 
@@ -71,11 +79,12 @@
       flex-shrink: 0;
       flex-grow: 0;
       border: 1px solid #adb5bd;
-      margin-right: 10px;
+      margin-right: 20px;
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 50% 50%;
-      box-shadow: 0 0 0 0 rgba(#66c5ba, 0);
+      box-sizing: border-box;
+      box-shadow: 0 0 0 0 rgba($green-color, 0);
       transition: all .2s;
     }
   }

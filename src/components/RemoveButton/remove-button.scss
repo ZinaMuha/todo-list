@@ -1,5 +1,5 @@
 .remove-button {
-  padding: 20px;
+  padding: 16px 20px;
   margin: 0;
   border: 0;
   background: none;
@@ -9,14 +9,20 @@
 
   &__icon {
     display: block;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background: none;
     background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiM2NmM1YmEiPjxnPjxwYXRoIGQ9Ik0yNCwzMUg4YTMsMywwLDAsMS0zLTNWOUExLDEsMCwwLDEsNyw5VjI4YTEsMSwwLDAsMCwxLDFIMjRhMSwxLDAsMCwwLDEtMVY5YTEsMSwwLDAsMSwyLDBWMjhBMywzLDAsMCwxLDI0LDMxWiIvPjxwYXRoIGQ9Ik0yOCw3SDRBMSwxLDAsMCwxLDQsNUgyOGExLDEsMCwwLDEsMCwyWiIvPjxwYXRoIGQ9Ik0yMCw3YTEsMSwwLDAsMS0xLTFWM0gxM1Y2YTEsMSwwLDAsMS0yLDBWMmExLDEsMCwwLDEsMS0xaDhhMSwxLDAsMCwxLDEsMVY2QTEsMSwwLDAsMSwyMCw3WiIvPjxwYXRoIGQ9Ik0xNiwyNmExLDEsMCwwLDEtMS0xVjExYTEsMSwwLDAsMSwyLDBWMjVBMSwxLDAsMCwxLDE2LDI2WiIvPjxwYXRoIGQ9Ik0yMSwyNGExLDEsMCwwLDEtMS0xVjEzYTEsMSwwLDAsMSwyLDBWMjNBMSwxLDAsMCwxLDIxLDI0WiIvPjxwYXRoIGQ9Ik0xMSwyNGExLDEsMCwwLDEtMS0xVjEzYTEsMSwwLDAsMSwyLDBWMjNBMSwxLDAsMCwxLDExLDI0WiIvPjwvZz48L3N2Zz4=');
+
+    @include mq($from: desktop) {
+      width: 25px;
+      height: 25px;
+    }
   }
 
   @include mq($from: desktop) {
     opacity: 0;
+    padding: 20px;
 
     .task:hover & {
       opacity: 1;

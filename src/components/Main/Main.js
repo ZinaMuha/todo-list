@@ -1,11 +1,16 @@
 import Tasks from '../Tasks/Tasks';
-import AddTask from '../AddTask/AddTask';
+import FormWrapper from '../FormWrapper/FormWrapper';
+import * as actions from '../../scripts/actions';
 
 const Main = () => {
   const main = document.createElement('main');
   main.classList.add('main');
-  main.appendChild(AddTask());
-  main.appendChild(Tasks());
+  let list = actions.getTasks();
+
+  const formWrapper = new FormWrapper();
+  const tasks = new Tasks(list);
+
+  main.append(formWrapper, tasks);
   return main;
 }
 
