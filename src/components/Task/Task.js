@@ -31,7 +31,7 @@ const Input = ({ id, checked }) => {
   _this.classList.add('task__checkbox');
   _this.checked = checked;
 
-  _this.addEventListener('change', ({ target }) => {
+  _this.addEventListener('change', () => {
     const isFinished = _this.checked;
     actions.editTask({ id, isFinished });
   });

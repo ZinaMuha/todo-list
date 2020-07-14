@@ -2,12 +2,18 @@ export function addTask(task) {
   const tasksArr = getTasks();
   tasksArr.unshift(task);
   setTasks(tasksArr);
+
+  const event = new CustomEvent('addTask', { detail: { task }});
+  document.dispatchEvent(event);
 };
 
 export function removeTask(id) {
   const tasksArr = getTasks();
   const newTasksArr = tasksArr.filter((task) => task.id !== +id);
   setTasks(newTasksArr);
+
+  const event = new CustomEvent('removeTask', { detail: { taskId: id }});
+  document.dispatchEvent(event);
 };
 
 export function editTask(newTask) {
@@ -23,7 +29,7 @@ export function editTask(newTask) {
 }
 
 export function getTasks() {
-  const tasks = localStorage.getItem('tasks');
+  const tasks = localStorage.getItem('tasks') || [];
   try {
     return JSON.parse(tasks);
   } catch {

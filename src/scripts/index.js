@@ -1,8 +1,6 @@
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import Main from '../components/Main/Main';
-import Task from '../components/Task/Task';
-import Tasks from '../components/Tasks/Tasks';
 import './polyfills';
 
 const App = document.getElementById('root');

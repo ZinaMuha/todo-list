@@ -12,9 +12,6 @@ const RemoveButton = (id) => {
 
   _this.addEventListener('click', () => {
     actions.removeTask(id);
-    const task = document.getElementById(id);
-    const ul = document.querySelector('ul');
-    ul.removeChild(task);
   });
 
   return _this;

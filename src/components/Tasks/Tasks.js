@@ -13,6 +13,18 @@ const Tasks = (list) => {
     const task = new Task(item);
     return _list.appendChild(task);
   });
+
+  document.addEventListener('addTask', ({ detail }) => {
+    const { task } = detail;
+    const newTask = new Task(task);
+    _list.insertBefore(newTask, _list.firstChild);
+  });
+
+  document.addEventListener('removeTask', ({ detail }) => {
+    const { taskId } = detail;
+    const task = document.getElementById(taskId);
+    _list.removeChild(task);
+  });
   
   _this.appendChild(_holder).appendChild(_list);
 

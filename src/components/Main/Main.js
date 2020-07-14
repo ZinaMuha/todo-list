@@ -5,6 +5,7 @@ import * as actions from '../../scripts/actions';
 const Main = () => {
   const main = document.createElement('main');
   main.classList.add('main');
+  
   let list = actions.getTasks();
 
   const formWrapper = new FormWrapper();
