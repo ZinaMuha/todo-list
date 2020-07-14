@@ -19,7 +19,7 @@ const Form = () => {
 
   _this.append(_input, _button);
 
-  _this.addEventListener('submit', function(event) {
+  _this.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!_input.value.length) { return; }
     const item = { id: Date.now(), text: _input.value };

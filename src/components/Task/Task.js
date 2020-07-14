@@ -1,4 +1,5 @@
 import RemoveButton from '../RemoveButton/RemoveButton';
+import ArrowButton from '../ArrowButton/ArrowButton';
 import * as actions from '../../scripts/actions';
 import './task.scss';
 
@@ -20,7 +21,9 @@ const Task = ({ text, isFinished, id=Date.now() }) => {
   _label.append(input, _text);
 
   const button = new RemoveButton(id);
-  _this.append(_label, button);
+  const arrowUp = new ArrowButton({ isUpDirection: true, id });
+  const arrowDown = new ArrowButton({ id });
+  _this.append(_label, arrowUp, arrowDown, button);
 
   return _this;
 };

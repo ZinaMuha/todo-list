@@ -7,6 +7,12 @@
   justify-content: space-between;
   align-items: flex-start;
 
+  &:first-child  .arrow-button_up,
+  &:last-child .arrow-button_down {
+    opacity: .3;
+    pointer-events: none;
+  }
+
   & + & {
     margin-top: 15px;
   }
