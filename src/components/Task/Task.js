@@ -4,7 +4,8 @@ import './task.scss';
 
 const Task = ({ text, isFinished, id=Date.now() }) => {
   const _this = document.createElement('li');
-  _this.setAttribute('id', id);
+  _this.id = id;
+  _this.draggable = true;
   _this.classList.add('task');
 
   const _label = document.createElement('label');
@@ -22,6 +23,10 @@ const Task = ({ text, isFinished, id=Date.now() }) => {
   const button = new RemoveButton(id);
   _this.append(_label, button);
 
+  _this.addEventListener(`dragstart`, dragStart);
+  _this.addEventListener(`dragend`, dragEnd);
+  _this.addEventListener(`dragover`, dragOver);
+
   return _this;
 };
 
@@ -37,6 +42,31 @@ const Input = ({ id, checked }) => {
   });
 
   return _this;
+}
+
+function dragStart(event) {
+  event.currentTarget.classList.add(`drag`);
+}
+
+function dragEnd(event) {
+  event.currentTarget.classList.remove(`drag`);
+  const arr = actions.getTasks();
+  let newArr = [];
+  const tasksElements = document.querySelectorAll(`.task`);
+  tasksElements.forEach((element, index) => {
+    const item = arr.find((item) => item.id === +element.id);
+    newArr[index] = item;
+  });
+  actions.setTasks(newArr);
+}
+
+function dragOver(event) {
+  event.preventDefault();
+  const { currentTarget } = event;
+  const dragged = document.querySelector(`.drag`);   
+  const next = currentTarget === dragged.nextElementSibling ? currentTarget.nextElementSibling : currentTarget;      
+  const tasksList = document.querySelector(`.tasks__list`);
+  tasksList.insertBefore(dragged, next);
 }
 
 export default Task;
