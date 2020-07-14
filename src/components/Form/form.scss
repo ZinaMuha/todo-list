@@ -23,11 +23,11 @@
     min-width: 20%;
     outline: 0;
     flex-shrink: 0;
-    box-shadow: 0 0 0 5px rgba($light-green-color, 0);
-    transition: box-shadow .2s;
+    cursor: pointer;
+    transition: background .2s;
 
     &:active {
-      box-shadow: 0 0 0 5px $light-green-color;
+      background: #5ab7ac;
     }
   }
 

@@ -44,11 +44,6 @@
       border-color: $green-color;
     }
 
-    &:active + #{$root}__text:before {
-      background-color: $green-color;
-      border-color: $green-color;
-    }
-
     &:checked + #{$root}__text {
       opacity: 0.2;
 
