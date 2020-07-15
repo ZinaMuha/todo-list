@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --config webpack.config.js"
+    "production": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
