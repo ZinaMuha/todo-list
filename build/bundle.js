@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "../node_modules/custom-event-polyfill/polyfill.js":
+/*!*********************************************************!*\
+  !*** ../node_modules/custom-event-polyfill/polyfill.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// Polyfill for creating CustomEvents on IE9/10/11\n\n// code pulled from:\n// https://github.com/d4tocchini/customevent-polyfill\n// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent#Polyfill\n\n(function() {\n  if (typeof window === 'undefined') {\n    return;\n  }\n\n  try {\n    var ce = new window.CustomEvent('test', { cancelable: true });\n    ce.preventDefault();\n    if (ce.defaultPrevented !== true) {\n      // IE has problems with .preventDefault() on custom events\n      // http://stackoverflow.com/questions/23349191\n      throw new Error('Could not prevent default');\n    }\n  } catch (e) {\n    var CustomEvent = function(event, params) {\n      var evt, origPrevent;\n      params = params || {};\n      params.bubbles = !!params.bubbles;\n      params.cancelable = !!params.cancelable;\n\n      evt = document.createEvent('CustomEvent');\n      evt.initCustomEvent(\n        event,\n        params.bubbles,\n        params.cancelable,\n        params.detail\n      );\n      origPrevent = evt.preventDefault;\n      evt.preventDefault = function() {\n        origPrevent.call(this);\n        try {\n          Object.defineProperty(this, 'defaultPrevented', {\n            get: function() {\n              return true;\n            }\n          });\n        } catch (e) {\n          this.defaultPrevented = true;\n        }\n      };\n      return evt;\n    };\n\n    CustomEvent.prototype = window.Event.prototype;\n    window.CustomEvent = CustomEvent; // expose definition to window\n  }\n})();\n\n\n//# sourceURL=webpack:///../node_modules/custom-event-polyfill/polyfill.js?");
+
+/***/ }),
+
 /***/ "../node_modules/stickyfilljs/dist/stickyfill.js":
 /*!*******************************************************!*\
   !*** ../node_modules/stickyfilljs/dist/stickyfill.js ***!
@@ -313,7 +324,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Header/Header */ \"./components/Header/Header.js\");\n/* harmony import */ var _components_Footer_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Footer/Footer */ \"./components/Footer/Footer.js\");\n/* harmony import */ var _components_Main_Main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Main/Main */ \"./components/Main/Main.js\");\n/* harmony import */ var _polyfills__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./polyfills */ \"./scripts/polyfills.js\");\n\n\n\n\nvar App = document.getElementById('root');\nvar main = new _components_Main_Main__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\nvar header = new _components_Header_Header__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n  title: 'TODO List'\n});\nvar footer = new _components_Footer_Footer__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n  text: 'by Z. Muhamediarova'\n});\nApp.append(header, main, footer);\n\n//# sourceURL=webpack:///./scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _polyfills__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./polyfills */ \"./scripts/polyfills.js\");\n/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header/Header */ \"./components/Header/Header.js\");\n/* harmony import */ var _components_Footer_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Footer/Footer */ \"./components/Footer/Footer.js\");\n/* harmony import */ var _components_Main_Main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Main/Main */ \"./components/Main/Main.js\");\n\n\n\n\nvar App = document.getElementById('root');\nvar main = new _components_Main_Main__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\nvar header = new _components_Header_Header__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n  title: 'TODO List'\n});\nvar footer = new _components_Footer_Footer__WEBPACK_IMPORTED_MODULE_2__[\"default\"]({\n  text: 'by Z. Muhamediarova'\n});\nApp.append(header, main, footer);\n\n//# sourceURL=webpack:///./scripts/index.js?");
 
 /***/ }),
 
@@ -325,7 +336,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var stickyfilljs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stickyfilljs */ \"../node_modules/stickyfilljs/dist/stickyfill.js\");\n/* harmony import */ var stickyfilljs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(stickyfilljs__WEBPACK_IMPORTED_MODULE_0__);\n// polyfills\n\nvar elements = document.querySelectorAll('.sticky');\nstickyfilljs__WEBPACK_IMPORTED_MODULE_0___default.a.add(elements);\n\n//# sourceURL=webpack:///./scripts/polyfills.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var stickyfilljs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stickyfilljs */ \"../node_modules/stickyfilljs/dist/stickyfill.js\");\n/* harmony import */ var stickyfilljs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(stickyfilljs__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! custom-event-polyfill */ \"../node_modules/custom-event-polyfill/polyfill.js\");\n/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(custom_event_polyfill__WEBPACK_IMPORTED_MODULE_1__);\n// polyfills\n\n\nvar elements = document.querySelectorAll('.sticky');\nstickyfilljs__WEBPACK_IMPORTED_MODULE_0___default.a.add(elements);\n\n//# sourceURL=webpack:///./scripts/polyfills.js?");
 
 /***/ })
 
