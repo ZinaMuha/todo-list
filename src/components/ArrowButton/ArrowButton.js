@@ -3,10 +3,10 @@ import './arrow-button.scss';
 
 const ArrowButton = ({ isUpDirection=false, id }) => {
   const _this = document.createElement('button');
-  _this.setAttribute('name', 'remove');
+  const direction = isUpDirection ? 'up' : 'down';
+  _this.setAttribute('name', direction);
   _this.setAttribute('type', 'button');
-  const arrow = isUpDirection ? 'up' : 'down';
-  _this.classList.add(`arrow-button`, `arrow-button_${arrow}`);
+  _this.classList.add(`arrow-button`, `arrow-button_${direction}`);
   _this.innerHTML = `<span class="arrow-button__icon"></span>`;
 
   _this.addEventListener('click', () => {
