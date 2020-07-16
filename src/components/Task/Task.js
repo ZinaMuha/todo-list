@@ -1,5 +1,4 @@
 import RemoveButton from '../RemoveButton/RemoveButton';
-import ArrowButton from '../ArrowButton/ArrowButton';
 import * as actions from '../../scripts/actions';
 import './task.scss';
 
