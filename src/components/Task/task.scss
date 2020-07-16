@@ -7,6 +7,12 @@
   justify-content: space-between;
   align-items: flex-start;
 
+  &:first-child  .arrow-button_up,
+  &:last-child .arrow-button_down {
+    opacity: .3;
+    pointer-events: none;
+  }
+
   & + & {
     margin-top: 15px;
   }
@@ -41,11 +47,6 @@
     opacity: 0;
 
     & + #{$root}__text:hover:before {
-      border-color: $green-color;
-    }
-
-    &:active + #{$root}__text:before {
-      background-color: $green-color;
       border-color: $green-color;
     }
 

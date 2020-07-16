@@ -4,11 +4,13 @@ import './form-wrapper.scss';
 const FormWrapper = () => {
   const _this = document.createElement('section');
   _this.classList.add('form-wrapper');
-  const _holder = document.createElement('div');
-  _holder.classList.add('form-wrapper__holder');
+  _this.innerHTML = `
+    <div class="form-wrapper__holder"></div>
+  `;
+  const _holder = _this.querySelector('.form-wrapper__holder');
 
   const form = new Form();
-  _this.appendChild(_holder).appendChild(form);
+  _holder.appendChild(form);
 
   return _this;
 };

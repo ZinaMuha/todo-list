@@ -53,7 +53,7 @@ module.exports = {
             loader: 'sass-resources-loader',
             options: {
               resources: [
-                path.resolve(__dirname, 'src/styles/base/index.scss')
+                path.resolve(__dirname, 'src/styles/index.scss')
               ]
             },
           }
